@@ -52,7 +52,7 @@ td {
     border: 1px solid black;
 }
 
-.btn {
+.btn, #btn-equal {
     width: 100%;
     padding: 20px 20px;
     background-color: #e6e6dd;
