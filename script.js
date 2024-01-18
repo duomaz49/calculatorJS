@@ -48,12 +48,16 @@ function click(value){
 }
 
 function press(event){
+    const isEnterKey = event.key === 'Enter';
     keys.forEach((key) => {
-        if(event.key === key){
+        if(event.key === key && !isEnterKey){
             document.getElementById('text-input-field').value += event.key;
         }
-        event.preventDefault();
     });
+    
+    if(!isEnterKey){
+        event.preventDefault();
+    }
 }
 
 function clearField(){
