@@ -17,12 +17,10 @@ body {
 .container {
     background-color: #979991;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    box-shadow: 30px 40px 50px rgba(38, 38, 38, 1);
     overflow: hidden;
-}
-
-.box {
     padding: 10px;
+    border-radius: 15px;
 }
 
 h2 {
@@ -49,7 +47,8 @@ td {
     padding: 20px 10px;
     font-size: 1.5rem;
     font-weight: 400;
-    border: 1px solid black;
+    border: 3px groove black;
+    border-radius: 15px;
 }
 
 .btn, #btn-equal {
@@ -59,8 +58,10 @@ td {
     color: #333;
     font-size: 2rem;
     font-weight: 400;
-    border: 1px solid black;
+    border: 3px groove black;
     cursor: pointer;
+    border-radius: 15px;
+    transition: 0.3s;
 }
 
 #btn-clear {
@@ -70,6 +71,22 @@ td {
     color: #333;
     font-size: 3rem;
     font-weight: 400;
-    border: 1px solid black;
+    border: 3px groove black;
     cursor: pointer;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover, 
+#btn-equal:hover, 
+#btn-clear:hover {
+    background-color: #3e8e41;
+    color: white;
+}
+
+.btn.keyPressed,
+#btn-equal.keyPressed,
+#btn-clear.keyPressed {
+    background-color: #3e8e41;
+    color: white;
 }
