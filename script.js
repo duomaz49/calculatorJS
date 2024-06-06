@@ -1,3 +1,8 @@
+const buttons = document.querySelectorAll(".btn");
+const resultBtn = document.getElementById("btn-equal")
+const clearBtn = document.getElementById("btn-clear")
+const input = document.getElementById("text-input-field")
+
 const keys = [
   "0",
   "1",
@@ -16,14 +21,48 @@ const keys = [
   "/",
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
+const click = (value) => {
+  input.value += value;
+}
+
+const press = (event) => {
+  const isEnterKey = event.key === "Enter";
+  keys.forEach((key) => {
+    if (event.key === key && !isEnterKey) {
+      input.value += event.key;
+    }
+  });
+
+  if (!isEnterKey) {
+    event.preventDefault();
+  }
+}
+
+const clearField = () => {
+  let inputValue = input.value;
+  if (input.value.length > 1) {
+    input.value = inputValue.slice(0, -1);
+  } else {
+    input.value = "";
+  }
+}
+
+const solve = () => {
+  let inputValue = input.value;
+  let result = math.evaluate(inputValue);
+  if (result === undefined){
+    return alert('Please input some numbers')
+  }
+  input.value = result;
+}
+
   document.addEventListener("keydown", function (event) {
     if (event.key === "Backspace") {
-      document.getElementById("btn-clear").classList.add("keyPressed");
+      clearBtn.classList.add("keyPressed");
       clearField();
     } else if (event.key === "Enter") {
       event.preventDefault();
-      document.getElementById("btn-equal").classList.add("keyPressed");
+      resultBtn.classList.add("keyPressed");
       solve();
     } else if (keys.includes(event.key)) {
       const pressedButton = document.querySelector(
@@ -37,58 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener("keyup", function () {
-    document.getElementById("btn-clear").classList.remove("keyPressed");
-    document.getElementById("btn-equal").classList.remove("keyPressed");
-    document.querySelectorAll(".btn").forEach(function (button) {
+    clearBtn.classList.remove("keyPressed");
+    resultBtn.classList.remove("keyPressed");
+    buttons.forEach(function (button) {
       button.classList.remove("keyPressed");
     });
   });
 
-  let buttons = document.querySelectorAll(".btn");
   buttons.forEach(function (button) {
     button.addEventListener("click", function (event) {
       click(event.target.value);
     });
   });
 
-  document.getElementById("btn-clear").addEventListener("click", function () {
+  clearBtn.addEventListener("click", function () {
     clearField();
   });
 
-  document.getElementById("btn-equal").addEventListener("click", function () {
+  resultBtn.addEventListener("click", function () {
     solve();
   });
-});
-
-function click(value) {
-  document.getElementById("text-input-field").value += value;
-}
-
-function press(event) {
-  const isEnterKey = event.key === "Enter";
-  keys.forEach((key) => {
-    if (event.key === key && !isEnterKey) {
-      document.getElementById("text-input-field").value += event.key;
-    }
-  });
-
-  if (!isEnterKey) {
-    event.preventDefault();
-  }
-}
-
-function clearField() {
-  let input = document.getElementById("text-input-field");
-  let inputValue = input.value;
-  if (inputValue.length > 1) {
-    input.value = inputValue.slice(0, -1);
-  } else {
-    input.value = "";
-  }
-}
-
-function solve() {
-  let inputValue = document.getElementById("text-input-field").value;
-  let result = math.evaluate(inputValue);
-  document.getElementById("text-input-field").value = result;
-}
