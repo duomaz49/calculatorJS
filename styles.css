@@ -16,9 +16,13 @@ body {
 
 .container {
     background-color: #979991;
-    box-shadow: 0 10px 32px 0 rgba(31, 38, 135, 0.37), 0 2px 0 #fff inset;
+    box-shadow:
+            0 12px 32px 0 rgba(31, 38, 135, 0.37),
+            0 2px 0 #fff inset,
+            0 -4px 16px 0 rgba(0,0,0,0.18) inset,
+            0 8px 24px 0 rgba(0,0,0,0.25);
     overflow: hidden;
-    padding: 10px;
+    padding: 5px 20px 20px 20px;
     border-radius: 15px;
     border: 2px solid black;
 }
@@ -27,6 +31,10 @@ h2 {
     text-align: center;
     padding: 10px;
     letter-spacing: 1px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 1px 0 #fff;
 }
 
 tr {
@@ -44,10 +52,14 @@ td {
 
 .text-field {
     width: auto;
-    height: 80px;
+    height: 90px;
     padding: 20px 10px;
-    font-size: 1.5rem;
-    font-weight: 400;
+    color: #222;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: right;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
     border: 3px solid black;
     border-radius: 15px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) inset;
@@ -68,8 +80,8 @@ td {
 }
 
 #btn-equal {
-    width: 115px;
-    height: 80px;
+    width: 100%;
+    height: 90px;
     background-color: #e6e6dd;
     color: green;
     font-size: 3rem;
@@ -95,6 +107,10 @@ td {
 
 .btn, #btn-equal, #btn-clear {
     box-sizing: border-box;
+    font-family: 'Segoe UI', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
     min-height: 90px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 2px 0 #fff inset;
     background: linear-gradient(180deg, #e6e6dd 60%, #bdbdb3 100%);
@@ -109,6 +125,7 @@ td {
 #btn-clear.keyPressed {
     background: linear-gradient(180deg, #2fc42f 60%, #1e8c1e 100%);
     color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 1px 0 #fff inset;
-    border-bottom: 4px solid #155d15;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 0 #fff inset;
+    border-bottom: 2px solid #155d15;
+    transform: translateY(2px);
 }
